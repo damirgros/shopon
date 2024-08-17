@@ -1,12 +1,15 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../styles/Navigation.module.css";
+import styles from "@/styles/Navigation.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import CartMenu from "./CartMenu"; // Import the CartMenu component
+import CartMenu from "./CartMenu";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const Navigation = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -22,9 +25,9 @@ const Navigation = () => {
         <div className={styles.center}>
           <h1>shopON</h1>
         </div>
-        <div className={styles.right}>
+        <div className={cartItems.length > 0 ? styles.cartIconFilled : styles.right}>
           <FaShoppingCart onClick={toggleCart} className={styles.cartIcon} />
-          {isCartOpen && <CartMenu />} {/* Simply render CartMenu without passing props */}
+          {isCartOpen && <CartMenu />}
         </div>
       </nav>
     </header>

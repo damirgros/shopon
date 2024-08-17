@@ -1,9 +1,10 @@
 "use client";
 import { FC } from "react";
 import Image from "next/image";
-import styles from "../styles/Card.module.css";
+import styles from "@/styles/Card.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/slices/cartSlice";
 
 interface Item {
   _id: string;
@@ -17,11 +18,16 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ item }) => {
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
 
-  const onAddToCart = () => {
-    addToCart(item);
-    console.log("Adding to cart:", item);
+  const onAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    dispatch(addToCart(item));
+    const button = e.currentTarget;
+    button.classList.add(styles.clicked);
+
+    setTimeout(() => {
+      button.classList.remove(styles.clicked);
+    }, 600);
   };
 
   return (

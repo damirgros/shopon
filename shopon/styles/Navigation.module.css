@@ -36,6 +36,12 @@
   font-size: 1.7rem;
 }
 
+.cartIconFilled {
+  font-size: 1.7rem;
+  color: rgb(255, 36, 36);
+  margin: 0 1rem;
+}
+
 .cartMenu {
   position: absolute;
   top: 60px;
