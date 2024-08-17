@@ -1,0 +1,47 @@
+.header {
+  background: #333;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left a,
+.right .cartIcon {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.cartIcon {
+  cursor: pointer;
+}
+
+.left {
+  font-size: 1.5rem;
+}
+
+.center {
+  font-size: 2rem;
+}
+
+.right {
+  font-size: 1.7rem;
+}
+
+.cartMenu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

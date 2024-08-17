@@ -1,25 +1,13 @@
+import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
-require("dotenv").config();
 
-if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
+dotenv.config();
+
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error("MONGODB_URI is not defined in environment variables");
 }
 
-const uri: string = process.env.MONGODB_URI;
-const options = {};
+const client = new MongoClient(uri);
 
-let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
-
-if (process.env.NODE_ENV === "development") {
-  if (!globalThis._mongoClientPromise) {
-    client = new MongoClient(uri, options);
-    globalThis._mongoClientPromise = client.connect();
-  }
-  clientPromise = globalThis._mongoClientPromise;
-} else {
-  client = new MongoClient(uri, options);
-  clientPromise = client.connect();
-}
-
-export default clientPromise;
+export default client;

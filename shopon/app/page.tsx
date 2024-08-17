@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,14 +6,14 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.content}>
         <div className={styles.men}>
-          <div className={styles.text}>
-            <a href="">Men</a>
-          </div>
+          <Link href="/men" className={styles.text}>
+            Men
+          </Link>
         </div>
         <div className={styles.women}>
-          <div className={styles.text}>
-            <a href="">Women</a>
-          </div>
+          <Link href="/women" className={styles.text}>
+            Women
+          </Link>
         </div>
       </div>
     </main>
