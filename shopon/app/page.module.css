@@ -1,0 +1,52 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/homepage.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #1a4444;
+  animation: moveBackground 10s ease-in-out infinite alternate;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80%;
+  font-size: 3rem;
+}
+
+.men,
+.women {
+  width: 50%;
+}
+
+.men,
+.women {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text:hover {
+  transform: scale(0.8);
+  color: #ffffff;
+}
+
+.text {
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+/* Keyframes for background image animation */
+@keyframes moveBackground {
+  0% {
+    background-position: center top;
+  }
+  100% {
+    background-position: center center;
+  }
+}
