@@ -90,3 +90,12 @@
   color: #777;
   font-size: 14px;
 }
+
+@media only screen and (max-width: 480px) {
+  .cartMenu {
+    top: 200px; /* Adjusted for mobile to be lower */
+    right: 20px; /* Adjust right position for mobile */
+    width: 90%; /* Ensure cart menu takes most of the screen width on mobile */
+    max-height: 300px; /* Adjust max-height for mobile */
+  }
+}

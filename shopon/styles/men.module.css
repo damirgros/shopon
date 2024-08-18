@@ -9,3 +9,9 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
+
+@media only screen and (max-width: 480px) {
+  .main {
+    margin-right: 33%;
+  }
+}
